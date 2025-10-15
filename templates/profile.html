@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль - ПроДажи</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>ПроДажи</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="{{ url_for('index') }}">Главная</a></li>
+                    <li><a href="{{ url_for('services') }}">Услуги</a></li>
+                    <li><a href="{{ url_for('profile') }}" class="active">Профиль</a></li>
+                    <li><a href="{{ url_for('logout') }}">Выход</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile">
+            <div class="container">
+                <h2>Ваш профиль</h2>
+                <div class="profile-content">
+                    <img src="{{ user.profile_photo }}" alt="Фото профиля" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 1rem;">
+                    <p><strong>Имя:</strong> {{ user.first_name }}</p>
+                    <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
+                    <p><strong>Аккаунт:</strong> {{ user.account }}</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ПроДажи. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

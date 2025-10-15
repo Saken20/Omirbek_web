@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Эффективные Продажи - Главная</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
@@ -14,8 +14,14 @@
                     <h1>ПроДажи</h1>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Главная</a></li>
-                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="{{ url_for('index') }}" class="active">Главная</a></li>
+                    <li><a href="{{ url_for('services') }}">Услуги</a></li>
+                    {% if logged_in %}
+                    <li><a href="{{ url_for('profile') }}">Профиль</a></li>  <!-- Иконка/ссылка на профиль; замените на <img src="icon.png"> если нужно -->
+                    <li><a href="{{ url_for('logout') }}">Выход</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Вход</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -27,7 +33,7 @@
             <div class="container">
                 <h2>Увеличим ваши продажи в 3 раза</h2>
                 <p>Профессиональные решения для роста вашего бизнеса</p>
-                <a href="services.html" class="cta-button">Узнать больше</a>
+                <a href="{{ url_for('services') }}" class="cta-button">Узнать больше</a>
             </div>
         </section>
 

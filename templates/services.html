@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Услуги - Эффективные Продажи</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
@@ -14,8 +14,14 @@
                     <h1>ПроДажи</h1>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="services.html" class="active">Услуги</a></li>
+                    <li><a href="{{ url_for('index') }}">Главная</a></li>
+                    <li><a href="{{ url_for('services') }}" class="active">Услуги</a></li>
+                    {% if logged_in %}
+                    <li><a href="{{ url_for('profile') }}">Профиль</a></li>  <!-- Иконка/ссылка на профиль; замените на <img src="icon.png"> если нужно -->
+                    <li><a href="{{ url_for('logout') }}">Выход</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Вход</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

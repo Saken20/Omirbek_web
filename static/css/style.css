@@ -71,6 +71,7 @@ nav .container {
     list-style: none;
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-menu a {
@@ -83,6 +84,17 @@ nav .container {
 .nav-menu a:hover,
 .nav-menu a.active {
     color: #3498db;
+}
+
+.nav-menu img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.nav-menu img:hover {
+    transform: scale(1.1);
 }
 
 /* Hero секция */
@@ -114,7 +126,7 @@ nav .container {
     text-decoration: none;
     border-radius: 5px;
     font-weight: 500;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
     font-size: 1rem;
@@ -122,6 +134,7 @@ nav .container {
 
 .cta-button:hover, .submit-button:hover {
     background: #2980b9;
+    transform: translateY(-2px);
 }
 
 /* Секции */
@@ -142,6 +155,103 @@ section {
 .about-text p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
+}
+
+/* Секция профиля */
+.profile {
+    background: #f8f9fa;
+}
+
+.profile-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-content:hover {
+    transform: translateY(-5px);
+}
+
+.profile-content img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 2px solid #3498db;
+}
+
+.profile-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.profile-content p strong {
+    color: #2c3e50;
+}
+
+/* Секция логина и регистрации */
+.login, .register {
+    background: #f8f9fa;
+}
+
+.login form, .register form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.login form:hover, .register form:hover {
+    transform: translateY(-5px);
+}
+
+.login .form-group label, .register .form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.login .form-group input, .register .form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login .form-group input:focus, .register .form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.login ul, .register ul {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+.login ul li, .register ul li {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+}
+
+.login ul li.error, .register ul li.error {
+    color: #e74c3c; /* Красный для ошибок */
+}
+
+.login ul li.success, .register ul li.success {
+    color: #2ecc71; /* Зеленый для успешных сообщений */
 }
 
 /* Сетка преимуществ */
@@ -323,12 +433,14 @@ section {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
 }
 
 /* Подвал */
@@ -352,6 +464,8 @@ footer {
     
     .nav-menu {
         gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     .hero h2 {
@@ -378,7 +492,29 @@ footer {
         padding: 4rem 0;
     }
     
+    .profile-content,
+    .login form,
+    .register form {
+        padding: 1.5rem;
+    }
+    
     section {
         padding: 3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-content img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .login form, .register form {
+        max-width: 100%;
+    }
+    
+    .submit-button {
+        width: 100%;
+        padding: 0.8rem;
     }
 }
